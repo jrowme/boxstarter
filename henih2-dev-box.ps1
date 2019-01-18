@@ -1,6 +1,8 @@
 # Description: Boxstarter script for henih2 workstation
 # Author: henih2
 
+$creds = Get-Credential
+
 Disable-UAC
 $ConfirmPreference = "None" #ensure installing powershell modules don't prompt on needed dependencies
 
@@ -34,7 +36,10 @@ executeScript "ChefTools.ps1";
 executeScript "Docker.ps1";
 executeScript "PuppetTools.ps1";
 executeScript "PowerShellModules.ps1";
+executeScript "RsatTools.ps1";
 
+#--- Update PowerShell Help ---#
+Update-Help -Force
 
 #--- ReEnable Critical Items ---
 Enable-UAC
