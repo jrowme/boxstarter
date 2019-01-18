@@ -1,7 +1,7 @@
 # Description: Boxstarter script for henih2 workstation
 # Author: henih2
 
-$creds = Get-Credential
+$creds = Get-Credential ".\vagrant"
 
 Disable-UAC
 $ConfirmPreference = "None" #ensure installing powershell modules don't prompt on needed dependencies
