@@ -1,6 +1,6 @@
-choco -y hipchat
-choco -y slack
-choco -y microsoft-teams
-choco -y signal
-choco -y gitter
+choco install -y hipchat
+choco install -y slack
+choco install -y microsoft-teams
+choco install -y signal
+choco install -y gitter
 RefreshEnv
