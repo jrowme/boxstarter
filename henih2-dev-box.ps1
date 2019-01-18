@@ -1,21 +1,21 @@
 # Description: Boxstarter script for henih2 workstation
 # Author: henih2
 
-$creds = Get-Credential ".\vagrant"
+$creds = Get-Credential -UserName "$env:COMPUTERNAME\vagrant"
 
 Disable-UAC
 $ConfirmPreference = "None" #ensure installing powershell modules don't prompt on needed dependencies
 
 # Get the base URI path from the ScriptToCall value
-$bstrappackage = "-bootstrapPackage"
-$helperUri = $Boxstarter['ScriptToCall']
-$strpos = $helperUri.IndexOf($bstrappackage)
-$helperUri = $helperUri.Substring($strpos + $bstrappackage.Length)
-$helperUri = $helperUri.TrimStart("'", " ")
-$helperUri = $helperUri.TrimEnd("'", " ")
-$helperUri = $helperUri.Substring(0, $helperUri.LastIndexOf("/"))
-$helperUri += "/scripts"
-write-host "helper script base URI is $helperUri"
+# $bstrappackage = "-bootstrapPackage"
+# $helperUri = $Boxstarter['ScriptToCall']
+# $strpos = $helperUri.IndexOf($bstrappackage)
+# $helperUri = $helperUri.Substring($strpos + $bstrappackage.Length)
+# $helperUri = $helperUri.TrimStart("'", " ")
+# $helperUri = $helperUri.TrimEnd("'", " ")
+# $helperUri = $helperUri.Substring(0, $helperUri.LastIndexOf("/"))
+# $helperUri += "/scripts"
+# write-host "helper script base URI is $helperUri"
 
 function executeScript {
   Param ([string]$script)
