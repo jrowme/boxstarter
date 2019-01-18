@@ -24,7 +24,7 @@ function executeScript {
 #--- Setting up Windows ---
 executeScript "Browsers.ps1";
 executeScript "CommonDevTools.ps1";
-executeScript "Communications.ps1";
+executeScript "Communication.ps1";
 executeScript "FileExplorerSettings.ps1";
 executeScript "MediaTools.ps1";
 executeScript "SystemConfiguration.ps1";
