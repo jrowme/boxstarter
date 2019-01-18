@@ -1,0 +1,1 @@
+Get-WindowsCapability -Online -Name rsat* | Add-WindowsCapability -Online
