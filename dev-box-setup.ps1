@@ -2,6 +2,7 @@
 # Author: henih2
 
 Disable-UAC
+Set-MpPreference -DisableRealtimeMonitoring $true
 
 # Get the base URI path from the ScriptToCall value
 $bstrappackage = "-bootstrapPackage"
@@ -42,6 +43,7 @@ executeScript "WSL.ps1";
 Invoke-Expression "Update-Help -Force"
 
 #--- ReEnable Critical Items ---
+# Set-MpPreference -DisableRealtimeMonitoring $false
 # Enable-UAC
 # Enable-MicrosoftUpdate
 # Install-WindowsUpdate -acceptEula
