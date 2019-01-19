@@ -2,7 +2,6 @@
 # Author: henih2
 
 Disable-UAC
-$ConfirmPreference = "None" #ensure installing powershell modules don't prompt on needed dependencies
 
 # Get the base URI path from the ScriptToCall value
 $bstrappackage = "-bootstrapPackage"
@@ -18,7 +17,7 @@ write-host "helper script base URI is $helperUri"
 function executeScript {
   Param ([string]$script)
   write-host "executing $helperUri/$script ..."
-  iex ((new-object net.webclient).DownloadString("$helperUri/$script"))
+  Invoke-Expression ((new-object net.webclient).DownloadString("$helperUri/$script"))
 }
 
 #--- Setting up Windows ---
@@ -40,6 +39,6 @@ executeScript "RsatTools.ps1";
 Update-Help -Force
 
 #--- ReEnable Critical Items ---
-Enable-UAC
-Enable-MicrosoftUpdate
-Install-WindowsUpdate -acceptEula
+# Enable-UAC
+# Enable-MicrosoftUpdate
+# Install-WindowsUpdate -acceptEula
