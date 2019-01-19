@@ -1,2 +1,1 @@
-choco install -y Microsoft-Hyper-V-All --source="'WindowsFeatures'"
-RefreshEnv
+choco install Microsoft-Hyper-V-All --source="'WindowsFeatures'"

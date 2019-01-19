@@ -9,4 +9,3 @@ choco install -y f.lux
 choco install -y bleachbit
 choco install -y dropbox
 choco install -y windirstat
-RefreshEnv
