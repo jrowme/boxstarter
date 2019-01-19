@@ -34,9 +34,12 @@ executeScript "Docker.ps1";
 executeScript "PuppetTools.ps1";
 executeScript "PowerShellModules.ps1";
 executeScript "RsatTools.ps1";
+executeScript "HashiCorpTools.ps1";
+executeScript "PowerShellCore.ps1";
+executeScript "WSL.ps1";
 
 #--- Update PowerShell Help ---#
-Update-Help -Force
+Invoke-Expression "Update-Help -Force"
 
 #--- ReEnable Critical Items ---
 # Enable-UAC
