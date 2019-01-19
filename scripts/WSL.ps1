@@ -1,4 +1,5 @@
 choco install Microsoft-Windows-Subsystem-Linux --source="'windowsfeatures'"
+RefreshEnv
 
 #--- Ubuntu ---
 # TODO: Move this to choco install once --root is included in that package
