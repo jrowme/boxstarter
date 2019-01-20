@@ -24,7 +24,7 @@ function executeScript {
 #--- Setting up Windows ---
 executeScript "Browsers.ps1";
 executeScript "CommonDevTools.ps1";
-executeScript "Communication.ps1";
+# executeScript "Communication.ps1";
 executeScript "FileExplorerSettings.ps1";
 executeScript "MediaTools.ps1";
 executeScript "SystemConfiguration.ps1";
@@ -43,7 +43,7 @@ executeScript "WSL.ps1";
 Invoke-Expression "Update-Help -Force"
 
 #--- ReEnable Critical Items ---
-# Set-MpPreference -DisableRealtimeMonitoring $false
-# Enable-UAC
-# Enable-MicrosoftUpdate
-# Install-WindowsUpdate -acceptEula
+Set-MpPreference -DisableRealtimeMonitoring $false
+Enable-UAC
+Enable-MicrosoftUpdate
+Install-WindowsUpdate -acceptEula
