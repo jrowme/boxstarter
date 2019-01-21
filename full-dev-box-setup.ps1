@@ -79,7 +79,7 @@ RefreshEnv
 
 # --- Remove Default Apps ---
 #--- Uninstall unecessary applications that come with Windows out of the box ---
-# Write-Host "Uninstall some applications that come with Windows out of the box" -ForegroundColor "Yellow"
+Write-Host "Uninstall some applications that come with Windows out of the box" -ForegroundColor "Yellow"
 
 #Referenced to build script
 # https://docs.microsoft.com/en-us/windows/application-management/remove-provisioned-apps-during-update
@@ -88,77 +88,77 @@ RefreshEnv
 # https://gist.github.com/alirobe/7f3b34ad89a159e6daa1
 # https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/remove-default-apps.ps1
 
-# function removeApp {
-#   Param ([string]$appName)
-#   Write-Output "Trying to remove $appName"
-#   Get-AppxPackage $appName -AllUsers | Remove-AppxPackage
-#   Get-AppXProvisionedPackage -Online | Where DisplayNam -like $appName | Remove-AppxProvisionedPackage -Online
-# }
+function removeApp {
+  Param ([string]$appName)
+  Write-Output "Trying to remove $appName"
+  Get-AppxPackage $appName -AllUsers | Remove-AppxPackage
+  Get-AppXProvisionedPackage -Online | Where DisplayNam -like $appName | Remove-AppxProvisionedPackage -Online
+}
 
-# $applicationList = @(
-#   "Microsoft.BingFinance"
-#   "Microsoft.3DBuilder"
-#   "Microsoft.BingFinance"
-#   "Microsoft.BingNews"
-#   "Microsoft.BingSports"
-#   "Microsoft.BingWeather"
-#   "Microsoft.CommsPhone"
-#   "Microsoft.Getstarted"
-#   "Microsoft.WindowsMaps"
-#   "*MarchofEmpires*"
-#   "Microsoft.GetHelp"
-#   "Microsoft.Messaging"
-#   "*Minecraft*"
-#   "Microsoft.MicrosoftOfficeHub"
-#   "Microsoft.OneConnect"
-#   "Microsoft.WindowsPhone"
-#   "Microsoft.WindowsSoundRecorder"
-#   "*Solitaire*"
-#   "Microsoft.MicrosoftStickyNotes"
-#   "Microsoft.Office.Sway"
-#   "Microsoft.XboxApp"
-#   "Microsoft.XboxIdentityProvider"
-#   "Microsoft.ZuneMusic"
-#   "Microsoft.ZuneVideo"
-#   "Microsoft.NetworkSpeedTest"
-#   "Microsoft.FreshPaint"
-#   "Microsoft.Print3D"
-#   "*Autodesk*"
-#   "*BubbleWitch*"
-#   "king.com*"
-#   "G5*"
-#   "*Dell*"
-#   "*Facebook*"
-#   "*Keeper*"
-#   "*Netflix*"
-#   "*Twitter*"
-#   "*Plex*"
-#   "*.Duolingo-LearnLanguagesforFree"
-#   "*.EclipseManager"
-#   "ActiproSoftwareLLC.562882FEEB491" # Code Writer
-#   "*.AdobePhotoshopExpress"
-# );
+$applicationList = @(
+  "Microsoft.BingFinance"
+  "Microsoft.3DBuilder"
+  "Microsoft.BingFinance"
+  "Microsoft.BingNews"
+  "Microsoft.BingSports"
+  "Microsoft.BingWeather"
+  "Microsoft.CommsPhone"
+  "Microsoft.Getstarted"
+  "Microsoft.WindowsMaps"
+  "*MarchofEmpires*"
+  "Microsoft.GetHelp"
+  "Microsoft.Messaging"
+  "*Minecraft*"
+  "Microsoft.MicrosoftOfficeHub"
+  "Microsoft.OneConnect"
+  "Microsoft.WindowsPhone"
+  "Microsoft.WindowsSoundRecorder"
+  "*Solitaire*"
+  "Microsoft.MicrosoftStickyNotes"
+  "Microsoft.Office.Sway"
+  "Microsoft.XboxApp"
+  "Microsoft.XboxIdentityProvider"
+  "Microsoft.ZuneMusic"
+  "Microsoft.ZuneVideo"
+  "Microsoft.NetworkSpeedTest"
+  "Microsoft.FreshPaint"
+  "Microsoft.Print3D"
+  "*Autodesk*"
+  "*BubbleWitch*"
+  "king.com*"
+  "G5*"
+  "*Dell*"
+  "*Facebook*"
+  "*Keeper*"
+  "*Netflix*"
+  "*Twitter*"
+  "*Plex*"
+  "*.Duolingo-LearnLanguagesforFree"
+  "*.EclipseManager"
+  "ActiproSoftwareLLC.562882FEEB491" # Code Writer
+  "*.AdobePhotoshopExpress"
+);
 
-# foreach ($app in $applicationList) {
-#   removeApp $app
-# }
+foreach ($app in $applicationList) {
+  removeApp $app
+}
 
 # --- RSAT Tools ---
 Get-WindowsCapability -Online -Name rsat* | Add-WindowsCapability -Online
 RefreshEnv
 
 # --- Windows Subsystem Linux ---
-choco install Microsoft-Windows-Subsystem-Linux --source="'windowsfeatures'"
-RefreshEnv
+# choco install Microsoft-Windows-Subsystem-Linux --source="'windowsfeatures'"
+# RefreshEnv
 
 #--- Ubuntu ---
 # TODO: Move this to choco install once --root is included in that package
-Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile ~/Ubuntu.appx -UseBasicParsing
-Add-AppxPackage -Path ~/Ubuntu.appx
+# Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile ~/Ubuntu.appx -UseBasicParsing
+# Add-AppxPackage -Path ~/Ubuntu.appx
 # run the distro once and have it install locally with root user, unset password
 
-RefreshEnv
-Ubuntu1804 install --root
+# RefreshEnv
+# Ubuntu1804 install --root
 # Ubuntu1804 run apt update
 # Ubuntu1804 run apt upgrade -y
 
@@ -187,3 +187,12 @@ opensuse-42.exe
 # kali install --root
 # kali run apt update
 # kali run apt upgrade -y
+
+#--- Update PowerShell Help ---#
+Invoke-Expression "Update-Help -Force"
+
+#--- ReEnable Critical Items ---
+Set-MpPreference -DisableRealtimeMonitoring $false
+Enable-UAC
+Enable-MicrosoftUpdate
+Install-WindowsUpdate -acceptEula
