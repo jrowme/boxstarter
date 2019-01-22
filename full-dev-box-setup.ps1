@@ -146,12 +146,20 @@ foreach ($app in $applicationList) {
 }
 
 # --- RSAT Tools ---
-Get-WindowsCapability -Online -Name rsat* | Add-WindowsCapability -Online
-RefreshEnv
+if ((Get-ComputerInfo | select -expandproperty OsVersion) -gt '10.0.17134') {
+  Write-Host "Installing RSAT for Windows 1809"
+  Get-WindowsCapability -Online -Name rsat* | Add-WindowsCapability -Online
+  RefreshEnv
+}
+else {
+  Write-Host "Installing RSAT for Windows 1803 or lower"
+  choco install rsat -params '"/Server:2016"'
+  RefreshEnv
+}
 
 # --- Windows Subsystem Linux ---
-# choco install Microsoft-Windows-Subsystem-Linux --source="'windowsfeatures'"
-# RefreshEnv
+choco install Microsoft-Windows-Subsystem-Linux --source="'windowsfeatures'"
+RefreshEnv
 
 #--- Ubuntu ---
 # TODO: Move this to choco install once --root is included in that package
@@ -194,4 +202,4 @@ opensuse-42.exe
 # Set-MpPreference -DisableRealtimeMonitoring $false
 Enable-UAC
 Enable-MicrosoftUpdate
-# Install-WindowsUpdate -acceptEula
+Install-WindowsUpdate -acceptEula
