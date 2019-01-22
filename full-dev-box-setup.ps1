@@ -35,12 +35,18 @@ Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtec
 #--- File Explorer Settings ---
 # will expand explorer to the actual folder you're in
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name NavPaneExpandToCurrentFolder -Value 1
-#adds things back in your left pane like recycle bin
+# adds things back in your left pane like recycle bin
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name NavPaneShowAllFolders -Value 1
-#opens PC to This PC, not quick access
+# opens PC to This PC, not quick access
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Value 1
-#taskbar where window is open for multi-monitor
+# taskbar where window is open for multi-monitor
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name MMTaskbarMode -Value 2
+# Hide People from taskbar
+New-Item -Path HKLM:\Software\Policies\Microsoft\Windows -Name Explorer -ItemType Directory -Force
+New-ItemProperty -Path HKLM:\Software\Policies\Microsoft\Windows\Explorer -Name HidePeopleBar -PropertyType DWORD -Value 1
+# Hide Cortana from taskbar
+New-Item -Path HKLM:\Software\Policies\Microsoft\Windows -Name 'Windows Search' -ItemType Directory -Force
+New-ItemProperty -Path 'HKLM:\Software\Policies\Microsoft\Windows\Windows Search' -Name AllowCortana -PropertyType DWORD -Value 0
 RefreshEnv
 
 # --- HashiCorp Tools ---
