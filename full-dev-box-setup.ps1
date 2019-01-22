@@ -72,6 +72,7 @@ Install-Module PSWindowsUpdate -Force
 Install-Module PendingReboot -Force
 Install-Module PSScriptAnalyzer -Force
 Install-Module Posh-Docker -Force
+Install-Module PowerShellCookbook -Force
 
 # --- Puppet Tools ---
 choco install -y pdk puppet-bolt
@@ -92,7 +93,7 @@ function removeApp {
   Param ([string]$appName)
   Write-Output "Trying to remove $appName"
   Get-AppxPackage $appName -AllUsers | Remove-AppxPackage
-  Get-AppXProvisionedPackage -Online | Where DisplayNam -like $appName | Remove-AppxProvisionedPackage -Online
+  Get-AppXProvisionedPackage -Online | Where-Object DisplayNam -like $appName | Remove-AppxProvisionedPackage -Online
 }
 
 $applicationList = @(
@@ -137,6 +138,7 @@ $applicationList = @(
   "*.EclipseManager"
   "ActiproSoftwareLLC.562882FEEB491" # Code Writer
   "*.AdobePhotoshopExpress"
+  "Microsoft.WindowsMaps"
 );
 
 foreach ($app in $applicationList) {
