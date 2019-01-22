@@ -2,7 +2,7 @@
 # Author: henih2
 
 Disable-UAC
-Set-MpPreference -DisableRealtimeMonitoring $true
+# Set-MpPreference -DisableRealtimeMonitoring $true
 
 #--- Browsers ---
 choco install -y googlechrome firefox
@@ -188,11 +188,8 @@ opensuse-42.exe
 # kali run apt update
 # kali run apt upgrade -y
 
-#--- Update PowerShell Help ---#
-Invoke-Expression "Update-Help -Force"
-
 #--- ReEnable Critical Items ---
-Set-MpPreference -DisableRealtimeMonitoring $false
+# Set-MpPreference -DisableRealtimeMonitoring $false
 Enable-UAC
 Enable-MicrosoftUpdate
-Install-WindowsUpdate -acceptEula
+# Install-WindowsUpdate -acceptEula
