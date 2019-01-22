@@ -42,8 +42,7 @@ Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\
 # taskbar where window is open for multi-monitor
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name MMTaskbarMode -Value 2
 # Hide People from taskbar
-New-Item -Path HKLM:\Software\Policies\Microsoft\Windows -Name Explorer -ItemType Directory -Force
-New-ItemProperty -Path HKLM:\Software\Policies\Microsoft\Windows\Explorer -Name HidePeopleBar -PropertyType DWORD -Value 1
+New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People -Name PeopleBand -PropertyType DWORD -Value 0
 # Hide Cortana from taskbar
 New-Item -Path HKLM:\Software\Policies\Microsoft\Windows -Name 'Windows Search' -ItemType Directory -Force
 New-ItemProperty -Path 'HKLM:\Software\Policies\Microsoft\Windows\Windows Search' -Name AllowCortana -PropertyType DWORD -Value 0
@@ -66,7 +65,7 @@ RefreshEnv
 choco install -y powershell-core
 RefreshEnv
 choco install -y colortool
-(Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/dracula/iterm/master/Dracula.itermcolors').Content | Out-File -FilePath 'C:\ProgramData\Chocolatey\lib\colortool\content\schemes\Dracula.itermcolors'
+(Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/dracula/iterm/master/Dracula.itermcolors').Content | Out-File -FilePath 'C:\ProgramData\Chocolatey\lib\colortool\content\schemes\Dracula.itermcolors' -Encoding unicode
 RefreshEnv
 ColorTool.exe Dracula.itermcolors
 
