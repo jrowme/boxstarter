@@ -208,5 +208,5 @@ opensuse-42.exe
 #--- ReEnable Critical Items ---
 # Set-MpPreference -DisableRealtimeMonitoring $false
 Enable-UAC
-Enable-MicrosoftUpdate
-Install-WindowsUpdate -acceptEula
+# Enable-MicrosoftUpdate
+# Install-WindowsUpdate -acceptEula
