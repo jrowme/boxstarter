@@ -16,7 +16,7 @@ RefreshEnv
 choco install -y vscode
 choco install -y git --package-parameters="'/GitAndUnixToolsOnPath /WindowsTerminal'"
 RefreshEnv
-choco install -y python 7zip.install sysinternals f.lux bleachbit dropbox windirstat
+choco install -y python 7zip.install sysinternals f.lux bleachbit dropbox windirstat boxtail
 
 # --- Communication Tools ---
 choco install -y hipchat slack microsoft-teams signal gitter
