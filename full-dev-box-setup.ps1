@@ -65,9 +65,8 @@ RefreshEnv
 choco install -y powershell-core
 RefreshEnv
 choco install -y colortool
-(Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/dracula/iterm/master/Dracula.itermcolors').Content | Out-File -FilePath 'C:\ProgramData\Chocolatey\lib\colortool\content\schemes\Dracula.itermcolors' -Encoding unicode
+(Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/dracula/iterm/master/Dracula.itermcolors').Content | Out-File -FilePath 'C:\ProgramData\Chocolatey\lib\colortool\content\schemes\Dracula.itermcolors' -Encoding utf8
 RefreshEnv
-ColorTool.exe Dracula.itermcolors
 
 # --- PowerShell Modules ---
 Install-Module psake -Force
