@@ -2,7 +2,7 @@
 # Author: henih2
 
 Disable-UAC
-Set-MpPreference -DisableRealtimeMonitoring $true
+# Set-MpPreference -DisableRealtimeMonitoring $true
 
 # Get the base URI path from the ScriptToCall value
 $bstrappackage = "-bootstrapPackage"
@@ -24,11 +24,11 @@ function executeScript {
 #--- Setting up Windows ---
 executeScript "Browsers.ps1";
 executeScript "CommonDevTools.ps1";
-# executeScript "Communication.ps1";
+executeScript "Communication.ps1";
 executeScript "FileExplorerSettings.ps1";
 executeScript "MediaTools.ps1";
 executeScript "SystemConfiguration.ps1";
-# executeScript "RemoveDefaultApps.ps1";
+executeScript "RemoveDefaultApps.ps1";
 executeScript "HyperV.ps1";
 executeScript "ChefTools.ps1";
 executeScript "Docker.ps1";
@@ -43,7 +43,7 @@ executeScript "WSL.ps1";
 Invoke-Expression "Update-Help -Force"
 
 #--- ReEnable Critical Items ---
-Set-MpPreference -DisableRealtimeMonitoring $false
+# Set-MpPreference -DisableRealtimeMonitoring $false
 Enable-UAC
-Enable-MicrosoftUpdate
-Install-WindowsUpdate -acceptEula
+# Enable-MicrosoftUpdate
+# Install-WindowsUpdate -acceptEula
