@@ -5,10 +5,10 @@ Disable-UAC
 # Set-MpPreference -DisableRealtimeMonitoring $true
 
 #--- Browsers ---
-choco install -y googlechrome firefox
+choco install -y googlechrome firefox brave
 RefreshEnv
 
-# --- Chef Tools ---
+# --- Config Tools ---
 choco install -y chefdk
 RefreshEnv
 
@@ -17,9 +17,11 @@ choco install -y vscode
 choco install -y git --package-parameters="'/GitAndUnixToolsOnPath /WindowsTerminal'"
 RefreshEnv
 choco install -y python 7zip.install sysinternals f.lux bleachbit dropbox windirstat boxtail
+choco install -y windows-admin-center
+choco install -y colortool microsoft-windows-terminal
 
 # --- Communication Tools ---
-choco install -y hipchat slack microsoft-teams signal gitter
+choco install -y slack microsoft-teams signal gitter discord
 RefreshEnv
 
 # --- Docker Tools ---
