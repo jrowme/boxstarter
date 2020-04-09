@@ -86,6 +86,10 @@ Install-Module PendingReboot -Force
 Install-Module PSScriptAnalyzer -Force
 Install-Module Posh-Docker -Force
 Install-Module PowerShellCookbook -Force
+Install-Module PSFileTransfer -Force
+Install-Module VMware.PowerCLI -Force
+Install-Module PSScriptAnalyzer -Force
+Install-Module HostsFile -Force
 
 # --- Puppet Tools ---
 choco install -y pdk puppet-bolt
@@ -206,7 +210,6 @@ opensuse-42.exe
 # Invoke-WebRequest -Uri https://www.microsoft.com/store/apps/9PKR34TNCV07 -OutFile ~/Kali-Linux.appx -UseBasicParsing
 # Add-AppxPackage -Path ~/Kali-Linux.appx
 # run the distro once and have it install locally with root user, unset password
-# 
 # kali install --root
 # kali run apt update
 # kali run apt upgrade -y
