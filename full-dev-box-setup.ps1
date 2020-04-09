@@ -19,6 +19,8 @@ RefreshEnv
 choco install -y python 7zip.install sysinternals f.lux bleachbit dropbox windirstat baretail
 choco install -y windows-admin-center
 choco install -y colortool microsoft-windows-terminal
+choco install -y dotnetcore-sdk
+choco install -y notion
 
 # --- Communication Tools ---
 choco install -y slack microsoft-teams signal gitter discord
