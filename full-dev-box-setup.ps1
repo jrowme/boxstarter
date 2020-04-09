@@ -59,6 +59,9 @@ RefreshEnv
 # --- HyperV ---
 choco install Microsoft-Hyper-V-All --source="'WindowsFeatures'"
 
+# --- VMware ---
+choco install vmrc
+
 # --- Media Tools ---
 choco install -y vlc spotify
 RefreshEnv
