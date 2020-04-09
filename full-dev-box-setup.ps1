@@ -9,8 +9,8 @@ choco install -y googlechrome firefox brave
 RefreshEnv
 
 # --- Config Tools ---
-choco install -y chefdk
-RefreshEnv
+# choco install -y chefdk
+# RefreshEnv
 
 # --- Dev Tools ---
 choco install -y vscode
