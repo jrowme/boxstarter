@@ -23,7 +23,10 @@ choco install -y dotnetcore-sdk
 choco install -y notion
 
 # --- Communication Tools ---
-choco install -y slack microsoft-teams signal gitter discord
+choco install -y slack
+choco install -y signal
+choco install -y gitter
+choco install -y discord
 RefreshEnv
 
 # --- Docker Tools ---
