@@ -16,7 +16,7 @@ RefreshEnv
 choco install -y vscode
 choco install -y git --package-parameters="'/GitAndUnixToolsOnPath /WindowsTerminal'"
 RefreshEnv
-choco install -y python 7zip.install sysinternals f.lux bleachbit dropbox treesizefree baretail
+choco install -y 7zip.install sysinternals f.lux bleachbit dropbox treesizefree baretail
 choco install -y windows-admin-center
 choco install -y colortool microsoft-windows-terminal
 choco install -y dotnetcore-sdk
@@ -90,7 +90,7 @@ Install-Module PSScriptAnalyzer -Force
 Install-Module Posh-Docker -Force
 Install-Module PowerShellCookbook -Force
 Install-Module PSFileTransfer -Force
-Install-Module VMware.PowerCLI -Force
+#Install-Module VMware.PowerCLI -Force
 Install-Module PSScriptAnalyzer -Force
 Install-Module HostsFile -Force
 
