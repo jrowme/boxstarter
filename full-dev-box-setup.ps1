@@ -66,7 +66,7 @@ choco install Microsoft-Hyper-V-All --source="'WindowsFeatures'"
 choco install vmrc
 
 # --- Media Tools ---
-choco install -y vlc spotify
+choco install -y vlc
 RefreshEnv
 
 # --- PowerShell Tools ---
