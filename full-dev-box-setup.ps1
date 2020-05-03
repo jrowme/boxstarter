@@ -5,7 +5,7 @@ Disable-UAC
 # Set-MpPreference -DisableRealtimeMonitoring $true
 
 #--- Browsers ---
-choco install -y googlechrome firefox brave
+choco install -y googlechrome firefox brave microsoft-edge
 RefreshEnv
 
 # --- Config Tools ---
