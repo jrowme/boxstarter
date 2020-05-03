@@ -18,8 +18,7 @@ choco install -y git --package-parameters="'/GitAndUnixToolsOnPath /WindowsTermi
 RefreshEnv
 choco install -y 7zip.install sysinternals f.lux bleachbit dropbox treesizefree baretail
 choco install -y windows-admin-center
-choco install -y colortool microsoft-windows-terminal
-choco install -y dotnetcore-sdk
+choco install -y microsoft-windows-terminal
 choco install -y notion
 
 # --- Communication Tools ---
@@ -63,7 +62,7 @@ RefreshEnv
 choco install Microsoft-Hyper-V-All --source="'WindowsFeatures'"
 
 # --- VMware ---
-choco install vmrc
+choco install -y vmrc
 
 # --- Media Tools ---
 choco install -y vlc
