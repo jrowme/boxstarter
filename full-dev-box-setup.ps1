@@ -95,8 +95,8 @@ Install-Module PSScriptAnalyzer -Force
 Install-Module HostsFile -Force
 
 # --- Puppet Tools ---
-choco install -y pdk puppet-bolt
-RefreshEnv
+#choco install -y pdk puppet-bolt
+#RefreshEnv
 
 # --- Remove Default Apps ---
 #--- Uninstall unecessary applications that come with Windows out of the box ---
