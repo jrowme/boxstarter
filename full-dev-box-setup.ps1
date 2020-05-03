@@ -56,8 +56,8 @@ New-ItemProperty -Path 'HKLM:\Software\Policies\Microsoft\Windows\Windows Search
 RefreshEnv
 
 # --- HashiCorp Tools ---
-choco install -y packer vagrant
-RefreshEnv
+#choco install -y packer vagrant
+#RefreshEnv
 
 # --- HyperV ---
 choco install Microsoft-Hyper-V-All --source="'WindowsFeatures'"
